@@ -1,5 +1,9 @@
+import { useState } from "react"
+import ModalCart from "./Cart"
+
 function Header() {
 
+    const [state, setState] = useState(false)
     return (
         <header>
             <h1>Logo</h1>
@@ -7,14 +11,12 @@ function Header() {
                 <ul>
                     <li>Home</li>
                     <li>Home</li>
-
                     <li>Home</li>
-
                     <li>Home</li>
-
                 </ul>
             </nav>
-            <button>Cart</button>
+            <button onClick={() => setState(true)}>Cart</button>
+            {state && <ModalCart setOpen={setState} />}
         </header>
     )
 }
